@@ -38,8 +38,8 @@ function CodePay_ProcessOrder($config, $params){
         "type" => $config['gateway'],//1支付宝支付 3微信支付 2QQ钱包
         "price" => $params['money'],//金额100元
         "param" => "",//自定义参数
-        "notify_url"=> $http . $_SERVER['HTTP_HOST'] . "/payment/pay_notify.php?yunta_gateway=CodePay",
-        "return_url"=> $http . $_SERVER['HTTP_HOST'] . "/payment/pay_return.php?yunta_gateway=CodePay",
+        "notify_url"=> $http . $_SERVER['HTTP_HOST'] . "/payment/pay_notify.php?yunta_gateway={$order['gatewayid']}",
+        "return_url"=> $http . $_SERVER['HTTP_HOST'] . "/payment/pay_return.php?yunta_gateway={$order['gatewayid']}",
     ); //构造需要传递的参数
 
     ksort($data); //重新排序$data数组
